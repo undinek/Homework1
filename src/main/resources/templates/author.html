@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Author</title>
+        <link rel="stylesheet" type="text/css"
+              href="webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="../../css/main.css"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse">
+            <div class ="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="a">Sludinajumu portals</a>
+                </div>
+                <div id="navbar" class="collapsenavbar-collapse">
+                    <ul class="nac navbar-nav">
+                        <li class="active"><a href="main">Home</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="starter-template">
+                <h1>Autora sludinājumi</h1>
+                <table>
+                    <tr>
+                        <td>ID </td>
+                        <td>Title </td>
+                        <td>Message </td>
+                        <td>Author </td>
+                    </tr>
+                    <tr th:each="advertisement : ${ads}">
+                        <td th:text="${advertisement.getId()} "></td> 
+                        <td th:text="${advertisement.getTitle()} "></td> 
+                        <td th:text="${advertisement.getAuthor()} "></td> 
+                        <td th:text="${advertisement.getMessage()} "></td> 
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>

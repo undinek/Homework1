@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Main page</title>
+        <link rel="stylesheet" type="text/css"
+              href="webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="../../css/main.css"/>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse">
+            <div class ="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="a">Sludinajumu portals</a>
+                </div>
+                <div id="navbar" class="collapsenavbar-collapse">
+                    <ul class="nac navbar-nav">
+                        <li class="active"><a href="main">Home</a></li>
+                       
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="starter-template">
+                <h1>Sludinajumu portals</h1>
+                <p><span th:text="'Message: '+${message}"></span></p>
+                <p><a href="list">Get advertisements</a></p>
+                <p><a href="add">Add advertisement</a></p>
+                <p><a href="reverse">Reverse list</a></p>
+                <h3>Author's advertisement</h3>
+                <form action="#" th:action="@{/main}" th:object="${advertisement}" method="post">
+                    <p>Author: <input type="text" name="author"/></p>
+                    <p><input type="submit" value="Find ads form this author" /> 
+                        <input type="reset" value="Reset" /></p>
+                </form>
+                <table>
+                    <tr>
+                        <td>ID </td>
+                        <td>Title </td>
+                        <td>Message </td>
+                        <td>Author </td>
+                    </tr>
+                    <tr th:each="advertisement : ${ads}">
+                        <td th:text="${advertisement.getId()} "></td> 
+                        <td th:text="${advertisement.getTitle()} "></td> 
+                        <td th:text="${advertisement.getAuthor()} "></td> 
+                        <td th:text="${advertisement.getMessage()} "></td> 
+
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+
+        <script type="text/javascript"
+        src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    </body>
+</html>
+
+<!--xmlns:th="http://www.thymeleaf.org"-->
