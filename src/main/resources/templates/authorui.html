@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-
+<!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
         <title>Main page</title>
@@ -18,7 +17,6 @@
                 <div id="navbar" class="collapsenavbar-collapse">
                     <ul class="nac navbar-nav">
                         <li class="active"><a href="main">Home</a></li>
-
                     </ul>
                 </div>
             </div>
@@ -26,18 +24,20 @@
         <div class="container">
             <div class="starter-template">
                 <h1>Sludinajumu portals</h1>
-                <p><span th:text="'Message: '+${message}"></span></p>
-                <p><a href="create">Add advertisement</a></p>
-                <p><a href="reverse">Reverse list</a></p>
-                <p><a href="adduser">Add user</a></p>
-            </div>
+                <p><span th:text="'Message: '+ ${message}"></span></p>
+                <table>
+                    <th:block th:each="advertisement : ${advertisementList}">
+                        <td th:text="${advertisement.getId()}"></td> 
+                        <td th:text="${advertisement.getTitle()}"></td> 
+                        <td th:text="${advertisement.getMessage()}"></td> 
+                        <td th:text="${advertisement.getAuthor()}"></td> 
+                    </th:block>
+                </table>
 
+            </div>
         </div>
 
         <script type="text/javascript"
         src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
     </body>
 </html>
-
-<!--xmlns:th="http://www.thymeleaf.org"-->

@@ -5,35 +5,31 @@
  */
 package lv.it.mavenproject1.domain;
 
-import java.util.Map;
-import org.springframework.web.bind.annotation.RequestMapping;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-/**
- *
- * @author Undine
- */
+@Entity(name = "Advertisement")
+@Table(name = "advertisement")
 public class Advertisement {
 
-    private static int count = 0;
-    private long id;
-    private boolean isFilled;
-    String title, message, author;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    Long id;
+    String title;
+    String message;
+    String author;
 
     public Advertisement() {
-        isFilled = false;
-        id = ++count;
     }
 
-    public Advertisement(String title, String message, String author) {
+    public Advertisement(Long id, String title, String message, String author) {
+        this.id = id;
         this.title = title;
         this.message = message;
         this.author = author;
-        isFilled = false;
-        id = ++count;
-    }
-
-    public long getId() {
-        return id;
     }
 
     public String getTitle() {
@@ -46,10 +42,6 @@ public class Advertisement {
 
     public String getAuthor() {
         return author;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public void setTitle(String title) {

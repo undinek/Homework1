@@ -6,6 +6,8 @@
 package lv.it.mavenproject1.service;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 import lv.it.mavenproject1.domain.Advertisement;
 import org.springframework.stereotype.Service;
@@ -17,12 +19,16 @@ import org.springframework.stereotype.Service;
 @Service
 public class AdvertisementService {
 
+    String name = "Undine";
     String title, author, message;
-ArrayList<Advertisement> advertisements;
-    public AdvertisementService() {
-        advertisements  = new ArrayList<>();
-    }
+    public List<Advertisement> hardcodedAdvertisementList;
+    public List<Advertisement> reverseAdvertisementList;
 
+    public AdvertisementService() {
+        hardcodedAdvertisementList = newAdvertisements();
+        reverseAdvertisementList = newAdvertisements();
+        Collections.reverse(reverseAdvertisementList);
+    }
 
     String[][] ad = {
         {"Pardod maju ", "Janis", "Pardou maju Riigaa "},
@@ -33,26 +39,56 @@ ArrayList<Advertisement> advertisements;
         {"Pardod iPhone ", "Liene", "Pardod iPhone6 "}
     };
 
-    public ArrayList<Advertisement> newAdvertisements() {
-       
-        int i = 0;
-        while (i < 6) {
-            Advertisement advertisement = new Advertisement(ad[i][0],
+    private List<Advertisement> newAdvertisements() {
+        List<Advertisement> advertisements = new ArrayList<>();
+        for (int i = 0; i < name.length(); i++) {
+            Advertisement advertisement = new Advertisement(Long.valueOf(i), ad[i][0],
                     ad[i][2], ad[i][1]);
             advertisements.add(advertisement);
-            i++;
+            
         }
         return advertisements;
     }
+    
+        public List<Advertisement> getAdvertisementListReverse(){
+        return reverseAdvertisementList;
+    }
 
-    public Advertisement getAdvertisement() {
-        Advertisement advertisement = new Advertisement( "Pardod maju",
-                "Pardod lielu maju!", "Janis");
-        return advertisement;
+    public List<Advertisement> getAdvertisementListByAuthor(String name) {
+        //atgriež šī autora sludinājumus
+        List<Advertisement> filteredByName = new ArrayList<>();
+        for (Advertisement advertisement : hardcodedAdvertisementList) {
+            if (advertisement.getAuthor().equals(author)) {
+                filteredByName.add(advertisement);
+            }
+        }
+        return filteredByName;
     }
     
-     public  ArrayList<Advertisement> getAdvertisements(Advertisement advertisement) {
-        advertisements.add(advertisement);
-        return advertisements;
-    }
+    
+
+//    public Advertisement getAdvertisement() {
+//        Advertisement advertisement = new Advertisement(1L, "Pardod māju", "Pārdod lielu māju", "Jānis");
+//        return advertisement;
+//    }
+//
+//    public ArrayList<Advertisement> getAdvertisementList() {
+//        ArrayList<Advertisement> advertisements = new ArrayList<>();
+//        Advertisement advertisement = new Advertisement(1L, "Pardod māju", "Pārdod lielu māju", "Jānis");
+//
+//        advertisements.add(advertisement);
+//
+//        return advertisements;
+//    }
+    
+    
+//    public List<Advertisement> reverse() {
+//        //atgriež datus sakārtotus pretēji numerācijai
+//        List<Advertisement> reverseAdvertisements;
+//        List<Advertisement> adsClone = new ArrayList<>(ads.subList(0, ads.size()));
+//        Collections.reverse(adsClone);
+//        reverseAdvertisements = (ArrayList) adsClone;
+//        return reverseAdvertisements;
+//    }
+
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title>Reverse</title>
+        <title>Main page</title>
         <link rel="stylesheet" type="text/css"
               href="webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
         <link rel="stylesheet" href="../../css/main.css"/>
@@ -26,13 +26,11 @@
                 <h1>Reverse advertisements</h1>
                 <table>
                     <tr>
-                        <td>ID </td>
                         <td>Title </td>
                         <td>Message </td>
                         <td>Author </td>
                     </tr>
                     <tr th:each="advertisement : ${ads}">
-                        <td th:text="${advertisement.getId()} "></td> 
                         <td th:text="${advertisement.getTitle()} "></td> 
                         <td th:text="${advertisement.getAuthor()} "></td> 
                         <td th:text="${advertisement.getMessage()} "></td> 

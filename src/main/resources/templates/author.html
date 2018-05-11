@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Author</title>
+        <title>Main page</title>
         <link rel="stylesheet" type="text/css"
               href="webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
         <link rel="stylesheet" href="../../css/main.css"/>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
@@ -13,11 +12,11 @@
         <nav class="navbar navbar-inverse">
             <div class ="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="a">Sludinajumu portals</a>
+                    <a class="navbar-brand" href="#">Sludinajumu portals</a>
                 </div>
                 <div id="navbar" class="collapsenavbar-collapse">
                     <ul class="nac navbar-nav">
-                        <li class="active"><a href="main">Home</a></li>
+                        <li class="active"><a href="../main">Home</a></li>
                     </ul>
                 </div>
             </div>
@@ -27,16 +26,31 @@
                 <h1>Autora sludinājumi</h1>
                 <table>
                     <tr>
-                        <td>ID </td>
                         <td>Title </td>
                         <td>Message </td>
                         <td>Author </td>
                     </tr>
-                    <tr th:each="advertisement : ${ads}">
-                        <td th:text="${advertisement.getId()} "></td> 
+                    <tr th:each="advertisement : ${advertisementList}">
                         <td th:text="${advertisement.getTitle()} "></td> 
-                        <td th:text="${advertisement.getAuthor()} "></td> 
                         <td th:text="${advertisement.getMessage()} "></td> 
+                        <td th:text="${advertisement.getAuthor()} "></td> 
+                    </tr>
+                </table>
+                <h2>Dati par autoru</h2>
+                <table>
+                    <tr>
+                        <td>ID </td>
+                        <td>Name </td>
+                        <td>Surname </td>
+                        <td>Type </td>
+                        <td>Age</td>
+                    </tr>
+                    <tr th:each="user : ${userList}">
+                        <td th:text="${user.getId()} "></td> 
+                        <td th:text="${user.getName()} "></td> 
+                        <td th:text="${user.getSurname()} "></td> 
+                        <td th:text="${user.getType()} "></td> 
+                        <td th:text="${user.getAge()} "></td> 
                     </tr>
                 </table>
             </div>

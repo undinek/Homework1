@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<head>
+    <title>Main page</title>
+    <link rel="stylesheet" type="text/css"
+          href="webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../css/main.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class ="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="a">Sludinajumu portals</a>
+            </div>
+            <div id="navbar" class="collapsenavbar-collapse">
+                <ul class="nac navbar-nav">
+                    <li class="active"><a href="main">Home</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="starter-template">
+            <h1>Sludinajumu portals</h1>
+            <table>
+                <tr>
+                    <td>ID </td>
+                    <td>Name </td>
+                    <td>Surname </td>
+                    <td>Type </td>
+                    <td>Age</td>
+                </tr>
+                <tr><td>
+                        <p><span th:text="${user.getId()}"></span></p>
+                    </td>
+                    <td>
+                        <p><span th:text="${user.getName()}"></span></p>
+                    </td>
+                    <td>
+                        <p><span th:text="${user.getSurname()}"></span></p>
+                    </td>
+                    <td>
+                        <p><span th:text="${user.getType()}"></span></p>
+                    </td>
+                    <td>
+                        <p><span th:text="${user.getAge()}"></span></p>
+                    </td>
+                </tr>
+            </table>
+
+
+        </div>
+    </div>
+
+    <script type="text/javascript"
+    src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>
